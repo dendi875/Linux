@@ -1,4 +1,3 @@
-[TOC]
 # 进程的守护神 - daemontools
 -------------
 
@@ -17,8 +16,8 @@ hello.php
 
 while (1) {
     try {
-        // dostuff(); 
-        printf("hello, %d\n", $i++);   
+        // dostuff();
+        printf("hello, %d\n", $i++);
     } catch (Exception $e) {
         // exception handling
     }
@@ -146,10 +145,10 @@ root      7549  7547  0 20:44 pts/0    00:00:00 svscan /service
 
 ### 制作并测试你的脚本
 
-这步的主要目的就是在尝试把程序变为常驻内存进程之前，先确保它可以作为前台程序正常工作。如果脚本有误在前台都不能正常运行，那变为常驻程序后观察结果肯定是达不到预期的。比如我们制作了一个下面这样的`PHP`脚本 
+这步的主要目的就是在尝试把程序变为常驻内存进程之前，先确保它可以作为前台程序正常工作。如果脚本有误在前台都不能正常运行，那变为常驻程序后观察结果肯定是达不到预期的。比如我们制作了一个下面这样的`PHP`脚本
 
 ```php
-cat /data1/www/test/php/process/hello.php  
+cat /data1/www/test/php/process/hello.php
 #!/usr/bin/env php
 <?php
 
@@ -197,7 +196,7 @@ exec su - root -c "php /data1/www/test/php/process/hello.php" 1>> /data1/www/tes
 打开另一个终端，验证程序是否正在运行
 
 ```sh
-$ tail -f /data1/www/test/php/process/hello.log 
+$ tail -f /data1/www/test/php/process/hello.log
 hello, 67
 hello, 68
 hello, 69
@@ -249,7 +248,7 @@ hello: up (pid 7917) 5 seconds
 
 `svstat`可以告诉我们以下信息
 
-1. 服务目录的名称（hello） 
+1. 服务目录的名称（hello）
 2. 当前状态（up or down）
 3. 进程`PID`
 4. 处于当前状态的秒数
@@ -314,10 +313,13 @@ tree /service/hello/supervise/
 # ps -ef | grep hello
 ```
 
+还有一种终极大招来卸载服务，那就是关闭服务并杀死正在运行所有的守护进程和其子进程。
+
+
 ## 参考资料
 
 - [Daemontools](http://cr.yp.to/daemontools.html)
 
 - [FAQ of daemontools](http://cr.yp.to/daemontools/faq/create.html)
 
-- [troubleshooters](http://www.troubleshooters.com/linux/djbdns/daemontools_intro.htm)
+- [daemontools_intro](http://www.troubleshooters.com/linux/djbdns/daemontools_intro.htm)
