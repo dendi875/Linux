@@ -205,7 +205,7 @@ $ ./bin/elasticsearch -d
 
 ## 4. Elasticsearch 插件
 
-### 4.1 ik 文分词插件
+### 4.1 IK 中文分词插件
 
 es 内置的分词器对中文不友好，会把中文分成单个字来进行全文检索，不能达到想要的结果，ik 可以进行友好的分词及自定义分词。
 
@@ -279,7 +279,7 @@ IK支持两种分词模式：
 * ik_max_word: 会将文本做最细粒度的拆分，会穷尽各种可能的组合
 * ik_smart: 会做最粗粒度的拆分
 
-接下来，我们看看IK分词效果和自带的有什么不同。
+接下来，我们看看 IK 分词效果和自带的有什么不同。
 
 先试一下`ik_smart`的效果：
 
@@ -620,9 +620,8 @@ $ curl 'localhost:9200/userdoor/person/_search?pretty'  -d '
 
 ## 6. 参考资料
 
-- [Elasticsearch   官方手册](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
+- [Elasticsearch 官方手册](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 - [elasticsearch-head](https://github.com/mobz/elasticsearch-head)
-- [Kibana](https://github.com/elastic/kibana)
 
 
 
